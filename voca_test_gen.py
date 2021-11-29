@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import getopt
 import sys
 import random
+import os
 
 def help():
     print("Usage: %s [options..] [files..]" % sys.argv[0])
@@ -95,7 +96,7 @@ if __name__ == "__main__":
     words = []
     if days:
         for day in days:
-            with open('voca_data\\day%d.txt' % day, 'r') as f:
+            with open(os.path.join('voca_data', 'day%d.txt' % day), 'r') as f:
                 words.extend(list(filter(None, f.read().splitlines())))
     if loads:
         for load in loads:
